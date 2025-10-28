@@ -66,20 +66,78 @@ document.addEventListener('DOMContentLoaded', function() {
             // Here you would typically send this to your analytics
         });
     });
-
-    // Animate elements on scroll
+// Animate elements on scroll
 const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        elements.forEach(el => {
-            const elementPosition = el.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-            
-            if (elementPosition < screenPosition) {
-                el.classList.add('animate-fade-in');
-            }
-        });
-    };
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  elements.forEach(el => {
+    const elementPosition = el.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
     
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Run once on load
+    if (elementPosition < screenPosition) {
+      el.classList.add('animate-fade-in');
+    }
+  });
+};
+
+// FAQ Accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const button = item.querySelector('button');
+  const content = item.querySelector('.faq-content');
+  const icon = item.querySelector('.faq-icon');
+  
+  button.addEventListener('click', () => {
+    const isOpen = content.classList.contains('hidden');
+    
+    // Close all other items
+    document.querySelectorAll('.faq-content').forEach(el => {
+      if (el !== content) el.classList.add('hidden');
+    });
+    document.querySelectorAll('.faq-icon').forEach(el => {
+      if (el !== icon) {
+        el.setAttribute('data-feather', 'chevron-down');
+        feather.replace();
+      }
+    });
+    
+    // Toggle current item
+    if (isOpen) {
+      content.classList.remove('hidden');
+      icon.setAttribute('data-feather', 'chevron-up');
+    } else {
+      content.classList.add('hidden');
+      icon.setAttribute('data-feather', 'chevron-down');
+    }
+    feather.replace();
+  });
+});
+
+// Cookie Consent
+const cookieConsent = document.getElementById('cookie-consent');
+const cookieAccept = document.getElementById('cookie-accept');
+
+if (!localStorage.getItem('cookieConsent')) {
+  cookieConsent.classList.remove('hidden');
+}
+
+cookieAccept.addEventListener('click', () => {
+  localStorage.setItem('cookieConsent', 'true');
+  cookieConsent.classList.add('hidden');
+});
+
+// Exit Intent Popup
+document.addEventListener('mouseout', (e) => {
+  if (e.relatedTarget === null && e.clientY < 50) {
+    // Show exit intent popup
+    console.log('Exit intent detected - would show popup here');
+  }
+});
+
+window.addEventListener('scroll', animateOnScroll);
+animateOnScroll(); // Run once on load
+
+// Initialize chatbot (placeholder)
+console.log('Chatbot would be initialized here');
+
+// Retargeting pixel (placeholder)
+console.log('Retargeting pixel would be loaded here');
 });

@@ -1,4 +1,55 @@
+
 /* Custom styles that complement Tailwind */
+/* FAQ Styles */
+.faq-item {
+  transition: all 0.3s ease;
+}
+.faq-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.faq-content {
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+/* Exit Intent Modal */
+.exit-intent-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.exit-intent-content {
+  background: white;
+  max-width: 500px;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+/* Chatbot Styles */
+.chatbot-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #FFB700;
+  color: #000814;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 999;
+}
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
