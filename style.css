@@ -24,6 +24,64 @@
 html {
     scroll-behavior: smooth;
 }
+/* Calculator range styles */
+.calculator-range {
+    -webkit-appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(to right, #FFB700, #000814);
+    outline: none;
+}
+
+.calculator-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FFB700;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+/* Feature cards */
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card:hover h3 {
+    color: #FFB700;
+}
+
+/* Pricing cards */
+.pricing-card {
+    transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip styles */
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000814;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    z-index: 10;
+}
 
 /* Custom button hover effect */
 .btn-hover {
