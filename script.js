@@ -1,3 +1,60 @@
+
+// Carousel functionality
+function initCarousel() {
+  const carousel = document.querySelector('.carousel-slides');
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+  const dots = document.querySelectorAll('.dot');
+  const descriptions = document.querySelectorAll('.feature-description');
+  let currentIndex = 0;
+  const totalSlides = document.querySelectorAll('.carousel-slide').length;
+
+  function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+    
+    // Update descriptions
+    descriptions.forEach((desc, index) => {
+      desc.classList.toggle('hidden', index !== currentIndex);
+      desc.classList.toggle('active', index === currentIndex);
+    });
+  }
+
+  // Navigation
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+  });
+
+  // Dot navigation
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      currentIndex = parseInt(dot.dataset.index);
+      updateCarousel();
+    });
+  });
+
+  // Auto-rotate (optional)
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateCarousel();
+  }, 5000);
+}
+
+// Initialize carousel if exists
+if (document.querySelector('.carousel-container')) {
+  initCarousel();
+}
+
 // Form handling
 document.addEventListener('DOMContentLoaded', function() {
     const demoForm = document.querySelector('form');
