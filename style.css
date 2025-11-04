@@ -1,32 +1,5 @@
 
-/* Image optimization styles */
-img {
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-img:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* Lazy loading styles */
-img[loading="lazy"] {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-img[loading="lazy"].loaded {
-    opacity: 1;
-}
-
-/* Responsive images */
-@media (max-width: 768px) {
-    .image-grid {
-        grid-template-columns: 1fr;
-    }
-}
+/* Custom styles that complement Tailwind */
 /* FAQ Styles */
 .faq-item {
   transition: all 0.3s ease;
