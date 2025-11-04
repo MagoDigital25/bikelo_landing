@@ -134,10 +134,33 @@ document.addEventListener('mouseout', (e) => {
 
 window.addEventListener('scroll', animateOnScroll);
 animateOnScroll(); // Run once on load
+// Lazy load images
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
+    
+    if ('IntersectionObserver' in window) {
+        let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    let lazyImage = entry.target;
+                    lazyImage.src = lazyImage.src;
+                    lazyImage.classList.add('loaded');
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
 
-// Initialize chatbot (placeholder)
-console.log('Chatbot would be initialized here');
-
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyImages.forEach(function(lazyImage) {
+            lazyImage.src = lazyImage.src;
+            lazyImage.classList.add('loaded');
+        });
+    }
+});
 // Retargeting pixel (placeholder)
 console.log('Retargeting pixel would be loaded here');
 });
