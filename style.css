@@ -137,15 +137,11 @@ html {
 .feature-card:hover {
     transform: translateY(-5px);
 }
+
 .feature-card:hover h3 {
     color: #FFB700;
 }
 
-.feature-list li {
-    width: 100%;
-    max-width: 250px;
-    text-align: center;
-}
 /* Pricing cards */
 .pricing-card {
     transition: all 0.3s ease;
