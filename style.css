@@ -132,7 +132,6 @@ html {
     cursor: pointer;
     border: 2px solid white;
 }
-
 /* Feature cards */
 .feature-card:hover {
     transform: translateY(-5px);
@@ -142,6 +141,17 @@ html {
     color: #FFB700;
 }
 
+.feature-list {
+    padding-left: 0;
+    margin-left: 0;
+    list-style-position: inside;
+}
+
+.feature-list li {
+    justify-content: center;
+    text-align: center;
+    padding: 0.25rem 0;
+}
 /* Pricing cards */
 .pricing-card {
     transition: all 0.3s ease;
