@@ -97,6 +97,7 @@ class CustomFooter extends HTMLElement {
               <a href="#portada">Solución</a>
               <a href="#funciones">¿Qué hace?</a>
               <a href="#beneficios">Beneficios</a>
+              <a href="#faq">Preguntas</a>
               <a href="#demo">Demo Gratis</a>
             </div>
           </div>
