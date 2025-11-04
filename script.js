@@ -66,67 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Here you would typically send this to your analytics
         });
     });
-// Carousel functionality
-function initCarousel() {
-    const track = document.querySelector('.carousel-track');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const prevButton = document.querySelector('.carousel-prev');
-    const nextButton = document.querySelector('.carousel-next');
-    const indicators = document.querySelectorAll('.carousel-indicator');
-    
-    let currentSlide = 0;
-    const slideCount = slides.length;
-    
-    // Update carousel position
-    function updateCarousel() {
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
-        
-        // Update indicators
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentSlide);
-        });
-    }
-    
-    // Next slide
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slideCount;
-        updateCarousel();
-    }
-    
-    // Previous slide
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-        updateCarousel();
-    }
-    
-    // Event listeners
-    if (nextButton) nextButton.addEventListener('click', nextSlide);
-    if (prevButton) prevButton.addEventListener('click', prevSlide);
-    
-    // Indicator clicks
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            currentSlide = index;
-            updateCarousel();
-        });
-    });
-    
-    // Auto-advance carousel
-    let carouselInterval = setInterval(nextSlide, 5000);
-    
-    // Pause on hover
-    const carouselContainer = document.querySelector('.carousel-container');
-    if (carouselContainer) {
-        carouselContainer.addEventListener('mouseenter', () => {
-            clearInterval(carouselInterval);
-        });
-        
-        carouselContainer.addEventListener('mouseleave', () => {
-            carouselInterval = setInterval(nextSlide, 5000);
-        });
-    }
-}
-
 // Animate elements on scroll
 const animateOnScroll = () => {
   const elements = document.querySelectorAll('.animate-on-scroll');
@@ -139,6 +78,7 @@ const animateOnScroll = () => {
     }
   });
 };
+
 // FAQ Accordion
 document.querySelectorAll('.faq-item').forEach(item => {
   const button = item.querySelector('button');
@@ -191,13 +131,9 @@ document.addEventListener('mouseout', (e) => {
     console.log('Exit intent detected - would show popup here');
   }
 });
+
 window.addEventListener('scroll', animateOnScroll);
 animateOnScroll(); // Run once on load
-
-// Initialize carousel
-document.addEventListener('DOMContentLoaded', function() {
-    initCarousel();
-});
 
 // Initialize chatbot (placeholder)
 console.log('Chatbot would be initialized here');

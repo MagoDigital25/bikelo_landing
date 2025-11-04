@@ -133,44 +133,6 @@ html {
     white-space: nowrap;
     z-index: 10;
 }
-/* Carousel Styles */
-.carousel-container {
-    position: relative;
-    border-radius: 1rem;
-}
-
-.carousel-track {
-    display: flex;
-}
-
-.carousel-slide {
-    flex-shrink: 0;
-    transition: transform 0.3s ease-in-out;
-}
-
-.carousel-prev,
-.carousel-next {
-    z-index: 10;
-    opacity: 0.8;
-}
-
-.carousel-prev:hover,
-.carousel-next:hover {
-    opacity: 1;
-    transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-indicator.active {
-    background-color: #FFB700 !important;
-    transform: scale(1.2);
-}
-
-/* Image optimization */
-.carousel-slide img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-}
 
 /* Custom button hover effect */
 .btn-hover {
