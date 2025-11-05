@@ -1,12 +1,12 @@
 ---
-title: Bikelo - Logística Ciclista en IA 🚴‍♂️
+title: Bikelo - Presupuestos con IA para talleres/tiendas de ciclismo. 🚴‍♂️
 colorFrom: purple
 colorTo: purple
-emoji: 🐳
+emoji: 🚀
 sdk: static
 pinned: false
 tags:
-  - deepsite-v3
+- deepsite-v3
 ---
 
 # Welcome to your new DeepSite project!
