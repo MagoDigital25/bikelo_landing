@@ -61,22 +61,37 @@ document.addEventListener('DOMContentLoaded', function() {
     if (demoForm) {
         demoForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form values
+
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
-            
-            // Here you would typically send this data to your backend
-            console.log('Form submitted:', { name, email, phone });
-            
-            // Show success message
-            alert(`¡Gracias ${name}! Hemos recibido tu solicitud de demo. Nos pondremos en contacto contigo pronto.`);
-            
-            // Reset form
-            demoForm.reset();
+
+            // URL del webhook de Make
+            const webhookUrl = 'https://hook.eu2.make.com/k7nknc1ahgjv52a5k3xr6zye9234vn6w';
+
+            // Enviar datos al webhook
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email, phone })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert(`¡Gracias ${name}! Hemos recibido tu solicitud de demo. Nos pondremos en contacto contigo pronto.`);
+                    demoForm.reset();
+                } else {
+                    alert('Hubo un problema al enviar tu solicitud. Inténtalo de nuevo.');
+                }
+            })
+            .catch(error => {
+                console.error('Error al enviar al webhook:', error);
+                alert('Error de conexión. Inténtalo más tarde.');
+            });
         });
     }
+});
     // Calculator functionality
     const hoursRange = document.getElementById('hours-range');
     const hoursValue = document.getElementById('hours-value');
