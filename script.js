@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(webhookUrl, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                     'x-make-apikey': '-iqndT.Ox2zFn?wa'
                 },
                 body: JSON.stringify({ name, email, phone })
