@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-});
+
     // Calculator functionality
     const hoursRange = document.getElementById('hours-range');
     const hoursValue = document.getElementById('hours-value');
